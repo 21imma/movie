@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>21 imma</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#0f0f0f;
+    color:white;
+    scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:#111;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav h2{
+    color:#ff4b2b;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+nav ul li{
+    cursor:pointer;
+}
+
+.search{
+    padding:8px;
+    border-radius:20px;
+    border:none;
+    outline:none;
+}
+
+/* HERO SECTION */
+.hero{
+    height:80vh;
+    background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("image/IMG_2529.JPG");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:60px;
+}
+
+.hero button{
+    margin-top:20px;
+    padding:10px 25px;
+    border:none;
+    border-radius:25px;
+    background:#ff4b2b;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero button:hover{
+    background:#ff1e00;
+}
+
+/* MOVIE GRID */
+.movies{
+    padding:50px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1a1a1a;
+    padding:15px;
+    border-radius:10px;
+    transition:0.4s;
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+
+.card:hover{
+    transform:scale(1.05);
+    box-shadow:0 10px 25px rgba(0,0,0,0.7);
+}
+
+.card button{
+    margin-top:10px;
+    padding:8px 15px;
+    border:none;
+    border-radius:20px;
+    background:#ff4b2b;
+    color:white;
+    cursor:pointer;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+}
+
+.close{
+    float:right;
+    cursor:pointer;
+    color:red;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#111;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>🎬 MLENGA Movies Store</h2>
+    <ul>
+        <li>Home</li>
+        <li>Series</li>
+        <li>Action</li>
+        <li>Contact</li>
+    </ul>
+    <input type="text" placeholder="Search movie..." class="search">
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Unlimited Movies & Series</h1>
+    <button onclick="scrollToMovies()">Browse Now</button>
+</section>
+
+<!-- MOVIES -->
+<section class="movies" id="movies">
+
+    <div class="card">
+        <img src="image/IMG_2288.JPG">
+        <h3>Fast & Furious 10</h3>
+        <button onclick="openModal()">Watch Trailer</button>
+    </div>
+
+    <div class="card">
+        <img src="image/IMG_2288.JPG">
+        <h3>Extraction 2</h3>
+        <button onclick="openModal()">Watch for $49.99</button>
+    </div>
+
+    <div class="card">
+        <img src="image/IMG_2288.JPG">
+        <h3>See Series</h3>
+        <button onclick="openModal()">Watch Trailer</button>
+    </div>
+
+    <div class="card">
+        <img src="image/IMG_2288.JPG">
+        <h3>Action Movie</h3>
+        <button onclick="openModal()">Stream Live</button>
+    </div>
+
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">X</span>
+        <h2>Trailer Playing...</h2>
+        <p>in 10 seconds</p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Movies Store | Developed by Emmanuel</p>
+</footer>
+
+<script>
+function scrollToMovies(){
+    document.getElementById("movies").scrollIntoView({behavior:"smooth"});
+}
+
+function openModal(){
+    document.getElementById("modal").style.display="flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>
